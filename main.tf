@@ -4,7 +4,7 @@ provider "azurerm" {
 
 locals {
   resource_group_name = "my-rg"
-  location            = "East US"
+  location            = "eastus"
   aks_cluster_name    = "my-aks-cluster"
   kubernetes_version  = "1.22.1"
   client_id           = "<your-client-id>"
