@@ -31,6 +31,11 @@ resource "helm_release" "argocd" {
   chart       = "argo-cd"
 
 set {
+    name  = "server.domain"
+    value = "argocd.climacs.dev"
+  }  
+
+set {
   name        = "installCRDs"
   value       = "true"
 }
