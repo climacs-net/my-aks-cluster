@@ -18,6 +18,25 @@ data "helm_repository" "argocd" {
   url  = "https://argoproj.github.io/argo-helm"
 }
 
+resource "helm_release" "cert_manager" {
+  name       = "cert-manager"
+  namespace  = "cert-manager"
+  chart      = "cert-manager"
+  repository = "https://charts.jetstack.io"
+  version    = "v1.7.1"
+
+  set {
+    name  = "installCRDs"
+    value = "true"
+  }
+}
+
+resource "kubernetes_namespace" "cert_manager" {
+  metadata {
+    name = "cert-manager"
+  }
+}
+
 resource "kubernetes_namespace" "argocd" {
 metadata {
   name         = "argocd"
