@@ -53,6 +53,42 @@ set {
     name  = "server.domain"
     value = "argocd.climacs.dev"
   }  
+  
+set {
+    name  = "server.extraArgs"
+    value = "{--insecure}"
+  }
+
+  set {
+    name  = "server.ingress.enabled"
+    value = "true"
+  }
+
+  set {
+    name  = "server.ingress.hosts[0]"
+    value = "argocd.climacs.dev"
+  }
+
+  set {
+    name  = "server.ingress.tls[0].secretName"
+    value = "argocd-tls-secret"
+  }
+
+  set {
+    name  = "server.ingress.tls[0].hosts[0]"
+    value = "argocd.climacs.dev"
+  }
+
+  set {
+    name  = "server.ingress.annotations.kubernetes\\.io/ingress\\.class"
+    value = "nginx"
+  }
+
+  set {
+    name  = "server.ingress.annotations.cert-manager\\.io/issuer"
+    value = "letsencrypt-prod"
+  }
+  
 
 set {
   name        = "installCRDs"
